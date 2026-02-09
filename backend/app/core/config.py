@@ -37,18 +37,8 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 7 days
 
     # CORS - Include both local and production URLs
-    BACKEND_CORS_ORIGINS: list = [
-        # Local development
-        "http://localhost:5173",
-        "http://localhost:3000",
-        "http://localhost:8080",
-        "http://localhost:8081",
-        "http://localhost:8082",
-        # Production (Vercel)
-        "https://artreal-lncn.vercel.app",
-        "https://artreal.vercel.app",
-        "https://*.vercel.app",
-    ]
+    # Set to ["*"] to allow all origins (needed for Cloud Run + Vercel)
+    BACKEND_CORS_ORIGINS: list = ["*"]
 
     # Gemini-3 Flash API Configuration
     GEMINI_API_KEY: Optional[str] = None
