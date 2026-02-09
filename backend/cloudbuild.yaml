@@ -2,14 +2,14 @@
 # Cloud Build configuration for Cloud Run
 # ============================================
 #
-# To deploy manually:
-#   gcloud builds submit --config cloudbuild.yaml
+# To deploy manually from repo root:
+#   gcloud builds submit --config backend/cloudbuild.yaml .
 #
 # Or set up a trigger in Cloud Build for auto-deploy on push
 #
 
 steps:
-  # Build the Docker image
+  # Build the Docker image from backend directory
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
@@ -17,7 +17,9 @@ steps:
       - 'gcr.io/$PROJECT_ID/artreal-backend:$COMMIT_SHA'
       - '-t'
       - 'gcr.io/$PROJECT_ID/artreal-backend:latest'
-      - '.'
+      - '-f'
+      - 'backend/Dockerfile'
+      - 'backend'
 
   # Push the Docker image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
