@@ -1,0 +1,57 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+.env
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+test/
+tests/
+
+# Database (local)
+*.db
+*.sqlite
+*.sqlite3
+
+# Projects (generated per user - should use cloud storage in production)
+projects/
+
+# Logs
+*.log
+logs/
+
+# Documentation
+*.md
+!README.md
+
+# Scripts
+*.bat
+*.sh
+
+# Misc
+.DS_Store
+Thumbs.db
+*.tmp
+*.temp
